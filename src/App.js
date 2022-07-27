@@ -6,16 +6,19 @@ import About from "./components/About";
 import Product from "./components/Product";
 import Contact from "./components/Contact";
 import { Route, Routes } from "react-router-dom";
+import ProductDetail from "./components/ProductDetail";
 
 function App() {
   return (
     <>
-    <Routes>
-      <Route path="/" element={<Home/>} />
-      <Route path="/products" element={<Product/>} />
-      <Route path="/about" element={<About/>} />
-      <Route path="/contact" element={<Contact/>} />
-    </Routes>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Product />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </>
   );
 }
