@@ -13,11 +13,11 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import StoreLogo from "@mui/icons-material/LocalMallTwoTone";
 import { NavLink } from "react-router-dom";
-import CartIcon from '@mui/icons-material/ShoppingCart';
+import CartIcon from "@mui/icons-material/ShoppingCart";
 
 const pages = [
   { id: 0, menu: "Home", link: "/" },
-  { id: 1, menu: "Products", link: "/product" },
+  { id: 1, menu: "Products", link: "/products" },
   { id: 2, menu: "About", link: "/about" },
   { id: 3, menu: "Contact", link: "/contact" },
 ];
@@ -99,7 +99,9 @@ const Header = () => {
                 <MenuItem key={page.id}>
                   <NavLink
                     to={page.link}
-                    className= {({isActive}) => isActive ? 'link-active' : 'link-inactive'}
+                    className={({ isActive }) =>
+                      isActive ? "link-active" : "link-inactive"
+                    }
                   >
                     {page.menu}
                   </NavLink>
@@ -133,7 +135,9 @@ const Header = () => {
                 <NavLink
                   to={page.link}
                   key={page.id}
-                  className= {({isActive}) => isActive ? 'link-active' : 'link-inactive'}
+                  className={({ isActive }) =>
+                    isActive ? "link-active" : "link-inactive"
+                  }
                 >
                   {page.menu}
                 </NavLink>
@@ -169,13 +173,10 @@ const Header = () => {
                 </MenuItem>
               ))}
             </Menu>
-            <NavLink
-            to="/Cart"
-            style={{ marginLeft: "10px" }}
-            >
-                <IconButton>
-                    <CartIcon />
-                </IconButton>
+            <NavLink to="/Cart" style={{ marginLeft: "10px" }}>
+              <IconButton size="large">
+                <CartIcon />
+              </IconButton>
             </NavLink>
           </Box>
         </Toolbar>

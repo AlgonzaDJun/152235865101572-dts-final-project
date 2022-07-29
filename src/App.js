@@ -11,18 +11,21 @@ import Product from "./container/Product";
 import Contact from "./container/Contact";
 import Header from "./components/Header";
 import Cart from "./container/Cart";
+import theme from "./theme/theme";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/products" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
+      {/* <ThemeProvider theme={theme}> */}
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/products" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      {/* </ThemeProvider> */}
     </div>
   );
 }
