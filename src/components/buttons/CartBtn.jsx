@@ -8,7 +8,7 @@ const CartBtn = () => {
 
   return (
     <>
-      <NavLink to="/" className="btn btn-outline-primary ms-2">
+      <NavLink to="/cart" className="btn btn-outline-primary ms-2">
         <span className="fa fa-shopping-cart me-1"></span> Cart ({state.length})
       </NavLink>
     </>

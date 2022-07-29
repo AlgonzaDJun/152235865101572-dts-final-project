@@ -10,7 +10,7 @@ const itemSlice = createSlice({
             return [...state, action.payload]
         },
         del_Item: (state, action) => {
-            state.filter(item => item.id !== action.payload.id)
+            return state.filter(item => item.id !== action.payload.id)
         }
     }
 })
