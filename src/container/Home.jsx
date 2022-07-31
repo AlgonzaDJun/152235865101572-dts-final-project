@@ -11,9 +11,33 @@ import "./Swiper.css";
 
 // import required modules
 import { EffectCards, Autoplay } from "swiper";
-import { Grid, Typography } from "@mui/material";
+import { Card, CardMedia, Grid, Typography } from "@mui/material";
+import {
+  useGetByCategoryQuery,
+  useGetProductsQuery,
+} from "../services/fakeStoreApi";
 
 const Home = () => {
+  // test data dari api
+  const {data, error, isLoading} = useGetByCategoryQuery('electronics');
+  // if (isLoading) {
+  //   console.log("loading");
+  // }
+  // console.log(data);
+
+  const CardProduct = ({ file }) => {
+    return (
+      <Card sx={{ width: "100%", borderRadius: "5px" }}>
+        <CardMedia
+          component="img"
+          height="inherit"
+          image={file.image}
+          alt=""
+        />
+      </Card>
+    );
+  };
+
   return (
     <div>
       <Grid
@@ -37,21 +61,20 @@ const Home = () => {
             }}
             loop={true}
           >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
-            <SwiperSlide>Slide 9</SwiperSlide>
+            <SwiperSlide style={{ backgroundColor: "#7D665F" }}>
+              {data.map(CardProduct(data))}
+            </SwiperSlide>
           </Swiper>
         </Grid>
 
         {/* make grid column */}
-        <Grid item md={6} p={4}>
-          <Typography variant="h5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit commodi alias ad dolore voluptatem vel sequi eligendi harum repellat obcaecati quod perferendis reiciendis tempora delectus, aut corrupti nesciunt vero nam!</Typography>
+        <Grid item md={6} p={3}>
+          <Typography variant="h5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+            commodi alias ad dolore voluptatem vel sequi eligendi harum repellat
+            obcaecati quod perferendis reiciendis tempora delectus, aut corrupti
+            nesciunt vero nam!
+          </Typography>
         </Grid>
       </Grid>
       asdf
