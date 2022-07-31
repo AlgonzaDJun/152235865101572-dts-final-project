@@ -25,14 +25,15 @@ const Home = () => {
   // }
   // console.log(data);
 
-  const CardProduct = ({ file }) => {
+  const CardProduct = ({ data }) => {
     return (
-      <Card sx={{ width: "100%", borderRadius: "5px" }}>
+      <Card sx={{ width: "100%", borderRadius: "5px" }} key={data.id}>
         <CardMedia
           component="img"
           height="inherit"
-          image={file.image}
+          image={data.image}
           alt=""
+          key={data.id}
         />
       </Card>
     );
@@ -62,7 +63,9 @@ const Home = () => {
             loop={true}
           >
             <SwiperSlide style={{ backgroundColor: "#7D665F" }}>
-              {data.map(CardProduct(data))}
+              {data && data.map((data, id) => (
+                <CardProduct data={data} key={data.id}/>
+              ))}
             </SwiperSlide>
           </Swiper>
         </Grid>
