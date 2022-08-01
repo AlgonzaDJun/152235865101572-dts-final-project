@@ -17,14 +17,14 @@ function App() {
   return (
     <div className="App">
       {/* <ThemeProvider theme={theme}> */}
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/products" element={<Product />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/products" element={<Product />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
       {/* </ThemeProvider> */}
     </div>
   );

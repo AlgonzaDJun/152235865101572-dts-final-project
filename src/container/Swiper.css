@@ -1,22 +1,22 @@
 /* media query for phone */
 @media (min-width: 481px) and (max-width: 767px) {
   .swiper {
-    width: 350px;
-    height: 500px;
+    width: 400px;
+    height: 320px;
   }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
   .swiper {
-    width: 250px;
+    width: 270px;
     height: 300px;
   }
 }
 
 @media (min-width: 768px) {
   .swiper {
-    width: 370px;
-    height: 500px;
+    width: 430px;
+    height: 400px;
   }
 }
 

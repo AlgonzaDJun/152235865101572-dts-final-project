@@ -12,3 +12,104 @@
 .link-inactive:hover {
   text-decoration: none;
 }
+/*
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .card-root {
+    margin: auto;
+    max-width: 280px;
+    width: 340px;
+    object-fit: contain;
+    border-radius: 8px;
+
+    /* maxWidth: 345, width: 340, objectFit: "contain", borderRadius:8px; */
+  }
+
+  .card-media {
+    max-height: 100%;
+    height: 180px;
+    width: 100%;
+    object-fit: contain;
+    background-color: white;
+    
+  }
+
+  .card-media img {
+    max-height: 180px;
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  .card-root {
+    /* maxWidth: 345, width: 340, objectFit: "contain", borderRadius:8px; */
+    margin: auto;
+    max-width: 400px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #bcaaa4;
+  }
+
+  .card-media {
+    max-height: 180px;
+    max-width: 100%;
+    height: 100%;
+    margin: auto;
+    object-fit: contain;
+    background-color: white;
+  }
+
+  .card-media img {
+    max-height: 180px;
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 768px) and (max-width: 1280px) {
+  .card-root {
+    /* maxWidth: 345, width: 340, objectFit: "contain", borderRadius:8px; */
+    margin: auto;
+    max-width: 345px;
+    width: 340px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  .card-media {
+    max-height: 100%;
+    height: 180px;
+    width: 100%;
+    object-fit: contain;
+    background-color: white;
+  }
+
+  .card-media img {
+    max-height: 180px;
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}

@@ -16,24 +16,39 @@ import {
   useGetByCategoryQuery,
   useGetProductsQuery,
 } from "../services/fakeStoreApi";
+import theme from "../theme/theme";
+import Product from "./Product";
 
 const Home = () => {
-  // test data dari api
-  const {data, error, isLoading} = useGetByCategoryQuery('electronics');
+  // ambil data dari api
+  const { data, error, isLoading } = useGetByCategoryQuery("electronics");
+
   // if (isLoading) {
   //   console.log("loading");
   // }
-  // console.log(data);
+  console.log(data);
 
   const CardProduct = ({ data }) => {
     return (
-      <Card sx={{ width: "100%", borderRadius: "5px" }} key={data.id}>
+      <Card
+        sx={{
+          // height: "300px",
+          width: "65%",
+          margin: "auto",
+          objectFit: "cover",
+          borderRadius: "5px",
+        }}
+        // className={styles.Card}
+      >
         <CardMedia
           component="img"
-          height="inherit"
+          height="100%"
           image={data.image}
           alt=""
-          key={data.id}
+          sx={{
+            // width:"100%"
+          }}
+          // className={styles.Media}
         />
       </Card>
     );
@@ -46,7 +61,6 @@ const Home = () => {
         direction="row"
         justifyContent="flex-start"
         alignItems="center"
-        // mt={5}
         backgroundColor="background.default"
       >
         <Grid item xs={12} md={6} mb={10} pt={5}>
@@ -62,25 +76,29 @@ const Home = () => {
             }}
             loop={true}
           >
-            <SwiperSlide style={{ backgroundColor: "#7D665F" }}>
-              {data && data.map((data, id) => (
-                <CardProduct data={data} key={data.id}/>
-              ))}
-            </SwiperSlide>
+            {data &&
+              data.map((data) => {
+                return (
+                  <SwiperSlide
+                    style={{ backgroundColor: "white" }}
+                    key={data.id}
+                  >
+                    <CardProduct data={data} />
+                  </SwiperSlide>
+                );
+              })}
           </Swiper>
         </Grid>
 
         {/* make grid column */}
         <Grid item md={6} p={3}>
           <Typography variant="h5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-            commodi alias ad dolore voluptatem vel sequi eligendi harum repellat
-            obcaecati quod perferendis reiciendis tempora delectus, aut corrupti
-            nesciunt vero nam!
+            Menyediakan berbagai macam produk elektronik, termasuk komputer,
+            laptop, dan sebagainya.
           </Typography>
         </Grid>
       </Grid>
-      asdf
+      
     </div>
   );
 };
