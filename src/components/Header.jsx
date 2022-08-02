@@ -43,7 +43,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" sx={{mb:5}}>
+    <AppBar position="fixed" sx={{mb:5}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <StoreLogo sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />

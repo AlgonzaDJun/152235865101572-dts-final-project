@@ -11,7 +11,7 @@ import "./Swiper.css";
 
 // import required modules
 import { EffectCards, Autoplay } from "swiper";
-import { Card, CardMedia, Grid, Typography } from "@mui/material";
+import { Box, Card, CardMedia, Grid, Typography } from "@mui/material";
 import {
   useGetByCategoryQuery,
   useGetProductsQuery,
@@ -62,6 +62,7 @@ const Home = () => {
         justifyContent="flex-start"
         alignItems="center"
         backgroundColor="background.default"
+        mt={8}
       >
         <Grid item xs={12} md={6} mb={10} pt={5}>
           <Swiper
@@ -92,13 +93,17 @@ const Home = () => {
 
         {/* make grid column */}
         <Grid item md={6} p={3}>
-          <Typography variant="h5">
-            Menyediakan berbagai macam produk elektronik, termasuk komputer,
-            laptop, dan sebagainya.
+          <hr />
+          <Typography color="white" >
+            <Box className='text-banner'>
+            Menyediakan berbagai macam produk elektronik, termasuk monitor,
+            penyimpanan, dan sebagainya.
+            </Box>
           </Typography>
+          <hr />
         </Grid>
       </Grid>
-      
+      <Product />
     </div>
   );
 };

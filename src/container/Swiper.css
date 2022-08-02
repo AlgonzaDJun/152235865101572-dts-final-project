@@ -4,12 +4,28 @@
     width: 400px;
     height: 320px;
   }
+  .text-banner {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    margin: 1px;
+    font-weight: bold;
+    text-align: center;
+  }
 }
+
 
 @media (min-width: 320px) and (max-width: 480px) {
   .swiper {
     width: 270px;
     height: 300px;
+  }
+
+  .text-banner {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    margin: 1px;
+    font-weight: bold;
+    text-align: center;
   }
 }
 
@@ -17,6 +33,14 @@
   .swiper {
     width: 430px;
     height: 400px;
+  }
+
+  .text-banner {
+    font-size: 3rem;
+    letter-spacing: 6px;
+    margin: 1;
+    font-weight: bold;
+    text-align: end;
   }
 }
 

@@ -69,6 +69,7 @@ const Product = () => {
   return (
     <div>
       <Grid container justifyContent="center" spacing={4}
+      mt={5}
        >
         {data &&
           data.map((data) => {
