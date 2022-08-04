@@ -14,6 +14,7 @@ import Cart from "./container/Cart";
 import theme from "./theme/theme";
 import RegisterModal from "./components/RegisterModal";
 import LoginModal from "./components/LoginModal";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/register" element={<RegisterModal />} />
         <Route path="login" element={<LoginModal />} />
       </Routes>
+      <Footer/>
       {/* </ThemeProvider> */}
     </div>
   );

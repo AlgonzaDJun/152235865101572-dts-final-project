@@ -7,7 +7,7 @@ const Cart = () => {
   const [user] = useAuthState(auth);
 
   return (
-    <div style={{ marginTop: "70px" }}>
+    <div style={{ marginTop: "70px" , marginBottom:"97vh"}}>
       {/* Cart is empty if not login */}
       {!user ? (
         <>
