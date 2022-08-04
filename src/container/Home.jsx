@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -14,14 +14,13 @@ import { EffectCards, Autoplay } from "swiper";
 import { Box, Card, CardMedia, Grid, Typography } from "@mui/material";
 import {
   useGetByCategoryQuery,
-  useGetProductsQuery,
 } from "../services/fakeStoreApi";
-import theme from "../theme/theme";
+// import theme from "../theme/theme";
 import Product from "./Product";
 
 const Home = () => {
   // ambil data dari api
-  const { data, error, isLoading } = useGetByCategoryQuery("electronics");
+  const { data } = useGetByCategoryQuery("electronics");
 
   // if (isLoading) {
   //   console.log("loading");

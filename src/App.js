@@ -11,7 +11,7 @@ import Product from "./container/Product";
 import Contact from "./container/Contact";
 import Header from "./components/Header";
 import Cart from "./container/Cart";
-import theme from "./theme/theme";
+// import theme from "./theme/theme";
 import RegisterModal from "./components/RegisterModal";
 import LoginModal from "./components/LoginModal";
 import Footer from "./components/Footer";

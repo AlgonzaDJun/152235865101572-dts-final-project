@@ -3,17 +3,15 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { useState } from "react";
+// import { useState } from "react";
 import {
-  Alert,
   FormHelperText,
   Grid,
-  Snackbar,
   TextField,
 } from "@mui/material";
 import "../App.css";
-import { Link, useNavigate } from "react-router-dom";
-import RegisterModal from "./RegisterModal";
+import { Link } from "react-router-dom";
+// import RegisterModal from "./RegisterModal";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
 import SnackBar from "./SnackBar";
@@ -31,7 +29,7 @@ const style = {
 };
 
 const LoginModal = ({ open, closeModal, toRegister }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = React.useState("");
 
   const handleSubmit = async (event) => {
@@ -54,7 +52,7 @@ const LoginModal = ({ open, closeModal, toRegister }) => {
   // When login success
   const [openAlert, setOpenAlert] = React.useState(false);
   const [errorAlert, setErrorAlert] = React.useState(false);
-  const [loginSuccess, setLoginSuccess] = React.useState(false);
+  // const [loginSuccess, setLoginSuccess] = React.useState(false);
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;

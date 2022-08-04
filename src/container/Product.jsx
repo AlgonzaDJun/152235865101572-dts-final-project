@@ -19,7 +19,7 @@ import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCartTwoTon
 import "../App.css";
 
 const Product = () => {
-  const { data, error, isLoading } = useGetByCategoryQuery("electronics");
+  const { data } = useGetByCategoryQuery("electronics");
 
   // const [addedToCart, setAddedToCart] = useState({});
 

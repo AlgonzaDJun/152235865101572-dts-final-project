@@ -6,7 +6,7 @@ import Modal from "@mui/material/Modal";
 import { useState } from "react";
 import { FormHelperText, Grid, TextField } from "@mui/material";
 import "../App.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
 import SnackBar from "./SnackBar";
@@ -24,7 +24,7 @@ const style = {
 };
 
 const RegisterModal = ({ open, closeModal, toLogin }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (event) => {
