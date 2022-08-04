@@ -14,6 +14,9 @@ import MenuItem from "@mui/material/MenuItem";
 import StoreLogo from "@mui/icons-material/LocalMallTwoTone";
 import { NavLink } from "react-router-dom";
 import CartIcon from "@mui/icons-material/ShoppingCart";
+import LoginIcon from "@mui/icons-material/Login";
+import LoginModal from "./LoginModal";
+import { useState } from "react";
 
 const pages = [
   { id: 0, menu: "Home", link: "/" },
@@ -42,8 +45,14 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
+  // untuk login
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
-    <AppBar position="fixed" sx={{mb:5}}>
+    <AppBar position="fixed" sx={{ mb: 5 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <StoreLogo sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -178,6 +187,10 @@ const Header = () => {
                 <CartIcon />
               </IconButton>
             </NavLink>
+            <IconButton>
+              <LoginIcon onClick={handleOpen} />
+            </IconButton>
+            <LoginModal open={open} closeModal={handleClose}/>
           </Box>
         </Toolbar>
       </Container>
