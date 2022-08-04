@@ -4,17 +4,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { useState } from "react";
-import {
-  Alert,
-  FormHelperText,
-  Grid,
-  Snackbar,
-  TextField,
-} from "@mui/material";
+import { FormHelperText, Grid, TextField } from "@mui/material";
 import "../App.css";
 import { Link, useNavigate } from "react-router-dom";
-import RegisterModal from "./RegisterModal";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
 import SnackBar from "./SnackBar";
 
@@ -30,9 +23,9 @@ const style = {
   p: 4,
 };
 
-const LoginModal = ({ open, closeModal, toRegister }) => {
+const RegisterModal = ({ open, closeModal, toLogin }) => {
   const navigate = useNavigate();
-  const [errorMessage, setErrorMessage] = React.useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,8 +34,12 @@ const LoginModal = ({ open, closeModal, toRegister }) => {
     const password = data.get("password");
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      console.log("login success");
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log(user);
       setOpenAlert(true);
       closeModal();
     } catch (error) {
@@ -51,10 +48,10 @@ const LoginModal = ({ open, closeModal, toRegister }) => {
     }
   };
 
-  // When login success
+  //   alert register
   const [openAlert, setOpenAlert] = React.useState(false);
   const [errorAlert, setErrorAlert] = React.useState(false);
-  const [loginSuccess, setLoginSuccess] = React.useState(false);
+
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -68,7 +65,7 @@ const LoginModal = ({ open, closeModal, toRegister }) => {
       <Modal open={open} onClose={closeModal}>
         <Box sx={style} className="box-modal">
           <Typography variant="h5" component="h1" sx={{ mb: 4 }}>
-            Sign in
+            Register
           </Typography>
           <form onSubmit={handleSubmit}>
             <TextField
@@ -100,13 +97,13 @@ const LoginModal = ({ open, closeModal, toRegister }) => {
               fullWidth
               sx={{ mb: 2 }}
             >
-              Sign in
+              Sign Up
             </Button>
           </form>
           <Grid container>
             <Grid item>
-              <Link onClick={closeModal && toRegister} to={"#"}>
-                {"Don't have an account? Sign Up"}
+              <Link onClick={ closeModal && toLogin} to="#">
+                {"have an account? Login"}
               </Link>
             </Grid>
           </Grid>
@@ -115,7 +112,7 @@ const LoginModal = ({ open, closeModal, toRegister }) => {
       <SnackBar
         openAlert={openAlert}
         handleClose={handleClose}
-        message={"Login berhasil"}
+        message={"Register berhasil"}
         severity="success"
       />
       <SnackBar
@@ -128,4 +125,4 @@ const LoginModal = ({ open, closeModal, toRegister }) => {
   );
 };
 
-export default LoginModal;
+export default RegisterModal;

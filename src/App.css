@@ -113,3 +113,12 @@
     object-fit: contain;
   }
 }
+
+/* login modal */
+@media (max-width: 768px) {
+  .box-modal {
+    max-width: 280px;
+    width: 100%;
+    margin: auto;
+  }
+}

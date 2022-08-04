@@ -12,6 +12,8 @@ import Contact from "./container/Contact";
 import Header from "./components/Header";
 import Cart from "./container/Cart";
 import theme from "./theme/theme";
+import RegisterModal from "./components/RegisterModal";
+import LoginModal from "./components/LoginModal";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/register" element={<RegisterModal />} />
+        <Route path="login" element={<LoginModal />} />
       </Routes>
       {/* </ThemeProvider> */}
     </div>
