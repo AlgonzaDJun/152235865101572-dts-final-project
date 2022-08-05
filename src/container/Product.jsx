@@ -1,5 +1,3 @@
-// import {
-
 // } from "@material-ui/core";
 import {
   Card,
@@ -7,16 +5,17 @@ import {
   CardContent,
   CardMedia,
   Grid,
-  IconButton,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useGetByCategoryQuery } from "../services/fakeStoreApi";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-// import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
-import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCartTwoTone';
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCartTwoTone";
 
 import "../App.css";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../redux/reducers/productSlice";
+import { NavLink } from "react-router-dom";
 
 const Product = () => {
   const { data, error, isLoading } = useGetByCategoryQuery("electronics");
@@ -24,11 +23,6 @@ const Product = () => {
   // const [addedToCart, setAddedToCart] = useState({});
 
   const ProductList = ({ data }) => {
-    const [addCart, setAddCart] = useState(false);
-
-    const handleAddCart = () => {
-      setAddCart(!addCart);
-    };
     return (
       <div>
         <Card className="card-root" key={data.id}>
@@ -46,12 +40,12 @@ const Product = () => {
               <Typography gutterBottom variant="h6">
                 {data.title}
               </Typography>
-              <Typography variant="h6" component="p" color="white">
+              <Typography variant="h6" component={"div"} color="white">
                 ${data.price}
               </Typography>
             </div>
             <Typography variant="body2" color="textSecondary">
-              {data.description.substring(0, 100)}
+              {data.description.substring(0, 100)}...
             </Typography>
           </CardContent>
           <CardActions
@@ -63,15 +57,17 @@ const Product = () => {
             }}
             // key={data.id}
           >
-            <IconButton
-              size="small"
-              key={data.id}
-              aria-label="add to cart"
-              onClick={handleAddCart}
+            {/* based id */}
+            <NavLink
+              style={{
+                margin: "auto",
+                textDecoration: "none",
+                color: "inherit",
+              }}
+              to={`/products/${data.id}`}
             >
-              {/* based id */}
-              {!addCart ? <AddShoppingCartIcon /> : <RemoveShoppingCartIcon />}
-            </IconButton>
+              <AddShoppingCartIcon /> Buy Now
+            </NavLink>
           </CardActions>
         </Card>
       </div>

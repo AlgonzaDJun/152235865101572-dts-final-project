@@ -4,8 +4,11 @@ import Header from "../components/Header";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/effect-cards";
+// import "swiper/css";
+// import "swiper/css/effect-cards";
+
+import 'swiper/swiper.min.css'
+import 'swiper/modules/pagination/pagination.min.css'
 
 import "./Swiper.css";
 
@@ -22,11 +25,6 @@ import Product from "./Product";
 const Home = () => {
   // ambil data dari api
   const { data, error, isLoading } = useGetByCategoryQuery("electronics");
-
-  // if (isLoading) {
-  //   console.log("loading");
-  // }
-  console.log(data);
 
   const CardProduct = ({ data }) => {
     return (
@@ -45,9 +43,11 @@ const Home = () => {
           height="100%"
           image={data.image}
           alt=""
-          sx={{
-            // width:"100%"
-          }}
+          sx={
+            {
+              // width:"100%"
+            }
+          }
           // className={styles.Media}
         />
       </Card>
@@ -94,10 +94,10 @@ const Home = () => {
         {/* make grid column */}
         <Grid item md={6} p={3}>
           <hr />
-          <Typography color="white" >
-            <Box className='text-banner'>
-            Menyediakan berbagai macam produk elektronik, termasuk monitor,
-            penyimpanan, dan sebagainya.
+          <Typography color="white">
+            <Box className="text-banner">
+              Menyediakan berbagai macam produk elektronik, termasuk monitor,
+              penyimpanan, dan sebagainya.
             </Box>
           </Typography>
           <hr />

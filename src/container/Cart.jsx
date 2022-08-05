@@ -1,9 +1,23 @@
 import React from "react";
 // firebase hooks user
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useSelector } from "react-redux";
 import { auth } from "../config/firebase";
+import { selectProduct } from "../redux/reducers/productSlice";
+
+
+// functional component cartItem
+const CartItem = () => {
+  const state = useSelector(selectProduct);
+  console.log(state);
+}
+
 
 const Cart = () => {
+  
+  const state = useSelector(selectProduct);
+  console.log(state);
+
   const [user] = useAuthState(auth);
 
   return (

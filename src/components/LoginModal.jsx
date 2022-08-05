@@ -42,7 +42,6 @@ const LoginModal = ({ open, closeModal, toRegister }) => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      console.log("login success");
       setOpenAlert(true);
       closeModal();
     } catch (error) {
