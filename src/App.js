@@ -17,6 +17,7 @@ import RegisterModal from "./components/RegisterModal";
 import LoginModal from "./components/LoginModal";
 import Footer from "./components/Footer";
 import ProductDetail from "./container/ProductDetail";
+import HandleCart from "./components/HandleCart";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/register" element={<RegisterModal />} />
         <Route path="login" element={<LoginModal />} />
+        <Route path="/handleCart" element={<HandleCart />} />
       </Routes>
       <Footer/>
       {/* </ThemeProvider> */}

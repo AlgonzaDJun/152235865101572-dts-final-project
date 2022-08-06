@@ -3,7 +3,7 @@ import {
   useGetByCategoryQuery,
   useGetProductByIdQuery,
 } from "../services/fakeStoreApi";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { Button, Card, CardMedia, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import Skeleton from "@material-ui/lab/Skeleton";
@@ -19,6 +19,8 @@ import {
 } from "../redux/reducers/productSlice";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
+import HandleCart from "../components/HandleCart";
+import SnackBar from "../components/SnackBar";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -51,6 +53,14 @@ const ProductDetail = () => {
   };
 
   const [user] = useAuthState(auth);
+
+  const [openAlert, setOpenAlert] = useState(false);
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpenAlert(false);
+  };
 
   //  skeletonPage
   const SkeletonPage = () => {
@@ -160,18 +170,28 @@ const ProductDetail = () => {
                 </Button>
               ) : (
                 <Button
-                  onClick={() => handleAddCart(cart)}
+                  onClick={() => setOpenAlert(true)}
                   variant="contained"
                   startIcon={<AddShoppingCartIcon />}
-                >Login First</Button>
-                )}
-              <Button
-                variant="contained"
-                startIcon={<ShoppingCartCheckoutIcon />}
-              >
-                Go To Cart
-              </Button>
+                >
+                  Add To Cart
+                </Button>
+              )}
+              <NavLink to="/cart">
+                <Button
+                  variant="contained"
+                  startIcon={<ShoppingCartCheckoutIcon />}
+                >
+                  Go To Cart
+                </Button>
+              </NavLink>
             </Box>
+            <SnackBar
+              openAlert={openAlert}
+              handleClose={handleClose}
+              message="Please Login First"
+              severity="error"
+            />
           </Grid>
         </Grid>
       </div>

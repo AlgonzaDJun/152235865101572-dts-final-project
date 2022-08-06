@@ -2,21 +2,22 @@ import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
-import { addProduct, removeProduct } from "../redux/reducers/productSlice";
+import { addProduct, removeProduct, selectProduct } from "../redux/reducers/productSlice";
 import SnackBar from "./SnackBar";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import { Provider } from "react-redux";
 import store from "../app/store";
 
-const HandleCart = ({ cart }) => {
+const HandleCart = () => {
   const dispatch = useDispatch();
   const [user] = useAuthState(auth);
 
-  const [openAlert, setOpenAlert] = useState(false);
   const [addCart, setAddCart] = useState(false);
-
+  
+  const [openAlert, setOpenAlert] = useState(false);
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -34,8 +35,9 @@ const HandleCart = ({ cart }) => {
     setAddCart(false);
   };
 
+  const cart = useSelector(selectProduct);
+
   return (
-    <Provider store={store}>
       <div>
         {!addCart ? (
           <Button
@@ -61,7 +63,6 @@ const HandleCart = ({ cart }) => {
           severity="error"
         />
       </div>
-    </Provider>
   );
 };
 
