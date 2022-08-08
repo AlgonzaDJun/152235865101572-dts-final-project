@@ -1,14 +1,24 @@
-import { Button, CardMedia, Grid, IconButton, Typography } from "@mui/material";
+import {
+  Button,
+  CardMedia,
+  Grid,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import React from "react";
 // firebase hooks user
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, createDispatchHook } from "react-redux";
 import { auth } from "../config/firebase";
 import { removeProduct, selectProduct } from "../redux/reducers/productSlice";
 import ClearIcon from "@mui/icons-material/Clear";
+import ShoppingCartCheckoutTwoToneIcon from "@mui/icons-material/ShoppingCartCheckoutTwoTone";
+import { NavLink } from "react-router-dom";
 
 const Cart = () => {
   const state = useSelector(selectProduct);
+  const dispatch = useDispatch();
 
   const [user] = useAuthState(auth);
 
@@ -32,7 +42,7 @@ const Cart = () => {
         <p>Please Login to add product to cart</p>
       </div>
     );
-  }
+  };
 
   const CartItems = (cartItem) => {
     return (
@@ -40,7 +50,8 @@ const Cart = () => {
         <Grid
           container
           spacing={1}
-          sx={{ backgroundColor: "background.paper" }}
+          sx={{ backgroundColor: "background.paper", width: "100%" }}
+          fullWidth
         >
           <Grid item xs={12} md={4} m={4}>
             <CardMedia>
@@ -54,7 +65,7 @@ const Cart = () => {
               />
             </CardMedia>
           </Grid>
-          <Grid item xs={12} md={5} m={4}>
+          <Grid item xs={12} md={5} m={4} fullWidth>
             <Typography variant="h5">
               {cartItem.title}
               {/* Kucing Kucing Kucing */}
@@ -77,14 +88,57 @@ const Cart = () => {
     );
   };
 
+  const button = () => {
+    return (
+      <div>
+        <Stack direction="row" spacing={2}>
+          <NavLink to="/checkout">
+            <Button
+              variant="contained"
+              endIcon={<ShoppingCartCheckoutTwoToneIcon />}
+              fullWidth
+              size="large"
+            >
+              Checkout
+            </Button>
+          </NavLink>
+        </Stack>
+      </div>
+    );
+  };
+
   return (
     <div style={{ marginTop: "90px", marginBottom: "97vh" }}>
       {/* Cart is empty if not login */}
-      { user && state.length !== 0 ? (
-        state.map(CartItems)
-      ) : !user || state.length === 0 ? (
+      {user && state.length !== 0 ? (
+        // map cart and render button
+        <div>
+          <h1>Cart</h1>
+          <Grid container>
+            <Grid item xs={12} md={12}>
+              {state.map((cartItem) => CartItems(cartItem))}
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={12}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                width: "100%",
+                mt: 5,
+              }}
+            >
+              {button()}
+            </Grid>
+          </Grid>
+        </div>
+      ) : // state.map(CartItems)
+      !user || state.length === 0 ? (
         <EmptyCart />
-      ) : <PleaseLogin /> }
+      ) : (
+        <PleaseLogin />
+      )}
     </div>
   );
 };
