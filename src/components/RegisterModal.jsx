@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from 'react';
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -39,7 +39,6 @@ const RegisterModal = ({ open, closeModal, toLogin }) => {
         email,
         password
       );
-      console.log(user);
       setOpenAlert(true);
       closeModal();
     } catch (error) {

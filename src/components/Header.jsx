@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -21,6 +21,8 @@ import RegisterModal from "./RegisterModal";
 import { signOut } from "firebase/auth";
 import { auth } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useSelector } from "react-redux";
+import { selectProduct } from "../redux/reducers/productSlice";
 
 const pages = [
   { id: 0, menu: "Home", link: "/" },
@@ -85,6 +87,28 @@ const Header = () => {
     }
   };
 
+  const cart = useSelector(selectProduct);
+
+  const MenuNav = ({ user }) => {
+    return user ? (
+      <>
+        <MenuItem>{user.email}</MenuItem>
+        <MenuItem onClick={onLogout}>Logout</MenuItem>
+      </>
+    ) : (
+      <>
+        <MenuItem onClick={handleOpenLogin}>
+          <Typography textAlign="center">
+            <IconButton>
+              <LoginIcon />
+            </IconButton>
+            Login / Register
+          </Typography>
+        </MenuItem>
+      </>
+    );
+  };
+
   return (
     <AppBar position="fixed" sx={{ mb: 5 }}>
       <Container maxWidth="xl">
@@ -94,8 +118,6 @@ const Header = () => {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -106,7 +128,12 @@ const Header = () => {
               textDecoration: "none",
             }}
           >
-            AJ Store
+            <NavLink
+              to="/"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              AJ Store
+            </NavLink>
           </Typography>
 
           {/* untuk mobile */}
@@ -153,12 +180,10 @@ const Header = () => {
               ))}
             </Menu>
           </Box>
-          <StoreLogo sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <StoreLogo sx={{ display: { xs: "flex", md: "none" }}} />
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -170,7 +195,13 @@ const Header = () => {
               textDecoration: "none",
             }}
           >
-            AJ Store
+            <NavLink
+              to="/"
+              // style textdecoration none
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              AJ Store
+            </NavLink>
           </Typography>
           {/* untuk desktop */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -211,27 +242,19 @@ const Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {user ? (
-                <>
-                  <MenuItem>{user.email}</MenuItem>
-                  <MenuItem onClick={onLogout}>Logout</MenuItem>
-                </>
-              ) : (
-                <>
-                  <MenuItem onClick={handleOpenLogin}>
-                    <Typography textAlign="center">
-                      <IconButton>
-                        <LoginIcon />
-                      </IconButton>
-                      Login / Register
-                    </Typography>
-                  </MenuItem>
-                </>
-              )}
+              <MenuNav user={user} />
             </Menu>
-            <NavLink to="/Cart" style={{ marginLeft: "10px" }}>
+            <NavLink
+              to="/Cart"
+              style={{
+                marginLeft: "10px",
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
               <IconButton size="large">
                 <CartIcon />
+                <Typography variant="caption">{cart.length}</Typography>
               </IconButton>
             </NavLink>
 
