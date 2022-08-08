@@ -26,7 +26,7 @@ const HandleCart = () => {
   };
 
   const handleAddCart = (product) => {
-    useDispatch(addProduct(product));
+    dispatch(addProduct(product));
     setAddCart(true);
   };
 

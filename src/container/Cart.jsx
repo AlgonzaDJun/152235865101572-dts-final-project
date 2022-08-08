@@ -51,7 +51,7 @@ const Cart = () => {
           container
           spacing={1}
           sx={{ backgroundColor: "background.paper", width: "100%" }}
-          fullWidth
+          
         >
           <Grid item xs={12} md={4} m={4}>
             <CardMedia>
@@ -65,7 +65,7 @@ const Cart = () => {
               />
             </CardMedia>
           </Grid>
-          <Grid item xs={12} md={5} m={4} fullWidth>
+          <Grid item xs={12} md={5} m={4} >
             <Typography variant="h5">
               {cartItem.title}
               {/* Kucing Kucing Kucing */}
@@ -96,7 +96,7 @@ const Cart = () => {
             <Button
               variant="contained"
               endIcon={<ShoppingCartCheckoutTwoToneIcon />}
-              fullWidth
+              
               size="large"
             >
               Checkout

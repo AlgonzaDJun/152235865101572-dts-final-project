@@ -7,8 +7,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // import "swiper/css";
 // import "swiper/css/effect-cards";
 
-import 'swiper/swiper.min.css'
-import 'swiper/modules/pagination/pagination.min.css'
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import "./Swiper.css";
 
