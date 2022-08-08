@@ -19,7 +19,7 @@ import {
 } from "../redux/reducers/productSlice";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
-import HandleCart from "../components/HandleCart";
+// import HandleCart from "../components/HandleCart";
 import SnackBar from "../components/SnackBar";
 
 const ProductDetail = () => {
@@ -39,6 +39,7 @@ const ProductDetail = () => {
 
   const dispatch = useDispatch();
   const cart = useSelector(selectProduct);
+  console.log(cart);
 
   const [addCart, setAddCart] = useState(false);
 
@@ -154,7 +155,7 @@ const ProductDetail = () => {
             <Box sx={{ display: "flex", justifyContent: "space-evenly" }}>
               {!addCart && user ? (
                 <Button
-                  onClick={() => handleAddCart(cart)}
+                  onClick={() => handleAddCart(product)}
                   variant="contained"
                   startIcon={<AddShoppingCartIcon />}
                 >
@@ -162,7 +163,7 @@ const ProductDetail = () => {
                 </Button>
               ) : addCart && user ? (
                 <Button
-                  onClick={() => handleRemoveCart(cart)}
+                  onClick={() => handleRemoveCart(product)}
                   variant="contained"
                   startIcon={<RemoveShoppingCartIcon />}
                 >

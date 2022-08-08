@@ -91,12 +91,12 @@ const Header = () => {
 
   const MenuNav = ({ user }) => {
     return user ? (
-      <div>
+      <>
         <MenuItem>{user.email}</MenuItem>
         <MenuItem onClick={onLogout}>Logout</MenuItem>
-      </div>
+      </>
     ) : (
-      <div>
+      <>
         <MenuItem onClick={handleOpenLogin}>
           <Typography textAlign="center">
             <IconButton>
@@ -105,7 +105,7 @@ const Header = () => {
             Login / Register
           </Typography>
         </MenuItem>
-      </div>
+      </>
     );
   };
 
@@ -130,7 +130,6 @@ const Header = () => {
           >
             <NavLink
               to="/"
-              // style textdecoration none
               style={{ textDecoration: "none", color: "inherit" }}
             >
               AJ Store
@@ -181,12 +180,10 @@ const Header = () => {
               ))}
             </Menu>
           </Box>
-          <StoreLogo sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <StoreLogo sx={{ display: { xs: "flex", md: "none" }}} />
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -256,7 +253,7 @@ const Header = () => {
               }}
             >
               <IconButton size="large">
-                <CartIcon />{" "}
+                <CartIcon />
                 <Typography variant="caption">{cart.length}</Typography>
               </IconButton>
             </NavLink>
