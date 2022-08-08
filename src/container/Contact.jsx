@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <div style={{ marginTop: "70px" }}>
       <Typography gutterBottom variant="h3" align="center">
-        React-App
+        AJ STORE
       </Typography>
       <Grid>
         <Card style={{ maxWidth: 450, padding: "20px 5px", margin: "0 auto" }}>
