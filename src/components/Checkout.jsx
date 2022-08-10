@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
+import { resetAddItem } from '../redux/reducers/productSlice';
 
 function Copyright() {
   return (
@@ -82,6 +83,7 @@ export default function Checkout() {
                   Your order number is #2001539. We have emailed your order
                   confirmation, and will send you an update when your order has
                   shipped.
+                  {resetAddItem()}
                 </Typography>
               </React.Fragment>
             ) : (

@@ -30,10 +30,14 @@ const productSlice = createSlice({
         );
       }
     },
+    // reset addItem
+    resetAddItem: (state) => {
+      return [];
+    }
   },
 });
 
-export const { addProduct, removeProduct } = productSlice.actions;
+export const { addProduct, removeProduct, resetAddItem } = productSlice.actions;
 
 export const selectProduct = (state) => state.product;
 
