@@ -37,7 +37,7 @@ function App() {
         <Route path="/handleCart" element={<HandleCart />} />
         <Route path="/checkout" element={<Checkout />} />
       </Routes>
-      <Footer/>
+      <Footer />
       {/* </ThemeProvider> */}
     </div>
   );
