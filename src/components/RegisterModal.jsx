@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -67,25 +67,37 @@ const RegisterModal = ({ open, closeModal, toLogin }) => {
             Register
           </Typography>
           <form onSubmit={handleSubmit}>
-            <TextField
-              id="email"
-              name="email"
-              label="Email"
-              variant="filled"
-              type="email"
-              fullWidth
-            />
+            <Box
+              sx={{
+                border: "1px solid #000",
+              }}
+            >
+              <TextField
+                id="email"
+                name="email"
+                label="Email"
+                variant="filled"
+                type="email"
+                fullWidth
+              />
+            </Box>
             <FormHelperText sx={{ mb: 2 }}>
               Silakan masukkan alamat email yang valid
             </FormHelperText>
-            <TextField
-              id="password"
-              name="password"
-              label="Password"
-              variant="filled"
-              type="password"
-              fullWidth
-            />
+            <Box
+              sx={{
+                border: "1px solid #000",
+              }}
+            >
+              <TextField
+                id="password"
+                name="password"
+                label="Password"
+                variant="filled"
+                type="password"
+                fullWidth
+              />
+            </Box>
             <FormHelperText sx={{ mb: 2 }} id="email-helper-text">
               Silakan masukkan password Anda
             </FormHelperText>
@@ -101,7 +113,7 @@ const RegisterModal = ({ open, closeModal, toLogin }) => {
           </form>
           <Grid container>
             <Grid item>
-              <Link onClick={ closeModal && toLogin} to="#">
+              <Link onClick={closeModal && toLogin} to="#">
                 {"have an account? Login"}
               </Link>
             </Grid>

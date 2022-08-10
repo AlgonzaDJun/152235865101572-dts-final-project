@@ -62,7 +62,7 @@ const Home = () => {
         direction="row"
         justifyContent="flex-start"
         alignItems="center"
-        backgroundColor="background.default"
+        backgroundColor="background.paper"
         mt={8}
       >
         <Grid item xs={12} md={6} mb={10} pt={5}>
