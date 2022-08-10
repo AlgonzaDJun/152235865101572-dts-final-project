@@ -39,7 +39,7 @@ const ProductDetail = () => {
 
   const dispatch = useDispatch();
   const cart = useSelector(selectProduct);
-  console.log(cart);
+  // console.log(cart);
 
   const [addCart, setAddCart] = useState(false);
 

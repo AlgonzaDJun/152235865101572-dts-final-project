@@ -68,25 +68,38 @@ const LoginModal = ({ open, closeModal, toRegister }) => {
             Sign in
           </Typography>
           <form onSubmit={handleSubmit}>
-            <TextField
-              id="email"
-              name="email"
-              label="Email"
-              variant="filled"
-              type="email"
-              fullWidth
-            />
+            <Box
+              sx={{
+                border: "1px solid #000",
+              }}
+            >
+              <TextField
+                id="email"
+                name="email"
+                label="Email"
+                variant="filled"
+                type="email"
+                fullWidth
+              />
+            </Box>
             <FormHelperText sx={{ mb: 2 }}>
               Silakan masukkan alamat email yang valid
             </FormHelperText>
-            <TextField
-              id="password"
-              name="password"
-              label="Password"
-              variant="filled"
-              type="password"
-              fullWidth
-            />
+            <Box
+              sx={{
+                border: "1px solid #000",
+              }}
+            >
+              <TextField
+                id="password"
+                name="password"
+                label="Password"
+                variant="filled"
+                type="password"
+                fullWidth
+                borderColor="black"
+              />
+            </Box>
             <FormHelperText sx={{ mb: 2 }} id="email-helper-text">
               Silakan masukkan password Anda
             </FormHelperText>

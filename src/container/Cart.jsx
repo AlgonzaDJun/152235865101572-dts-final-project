@@ -29,8 +29,14 @@ const Cart = () => {
   const EmptyCart = () => {
     return (
       <div>
-        <h1>Cart is empty</h1>
-        <p>Please Login or add product to cart</p>
+        <Grid container
+        direction="column"
+        justify="center" alignItems="center">
+          <Typography variant="h4">Cart is empty</Typography>
+          <Typography variant="body1">
+            Please Login or add product to cart
+          </Typography>
+        </Grid>
       </div>
     );
   };
@@ -51,7 +57,6 @@ const Cart = () => {
           container
           spacing={1}
           sx={{ backgroundColor: "background.paper", width: "100%" }}
-          
         >
           <Grid item xs={12} md={4} m={4}>
             <CardMedia>
@@ -65,7 +70,7 @@ const Cart = () => {
               />
             </CardMedia>
           </Grid>
-          <Grid item xs={12} md={5} m={4} >
+          <Grid item xs={12} md={5} m={4}>
             <Typography variant="h5">
               {cartItem.title}
               {/* Kucing Kucing Kucing */}
@@ -96,7 +101,6 @@ const Cart = () => {
             <Button
               variant="contained"
               endIcon={<ShoppingCartCheckoutTwoToneIcon />}
-              
               size="large"
             >
               Checkout
