@@ -21,7 +21,7 @@ export default function Review() {
   const state = useSelector(selectProduct);
   const addresses = useSelector(selectAddress);
 
-  console.log(state);
+  // console.log(state);
 
   // map state and count total price
 
