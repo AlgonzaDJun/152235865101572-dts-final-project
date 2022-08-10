@@ -83,7 +83,6 @@ export default function Checkout() {
                   Your order number is #2001539. We have emailed your order
                   confirmation, and will send you an update when your order has
                   shipped.
-                  {resetAddItem()}
                 </Typography>
               </React.Fragment>
             ) : (
