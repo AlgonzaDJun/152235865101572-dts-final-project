@@ -30,14 +30,14 @@ const productSlice = createSlice({
         );
       }
     },
-    // reset addItem
-    resetAddItem: (state) => {
-      return [];
-    }
+    // return empty array when cart is empty
+    emptyCart: (state) => {
+      return [...state = []];
+    },
   },
 });
 
-export const { addProduct, removeProduct, resetAddItem } = productSlice.actions;
+export const { addProduct, removeProduct, emptyCart } = productSlice.actions;
 
 export const selectProduct = (state) => state.product;
 

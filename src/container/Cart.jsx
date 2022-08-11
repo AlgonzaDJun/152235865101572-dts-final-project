@@ -9,10 +9,10 @@ import {
 import React from "react";
 // firebase hooks user
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useSelector, useDispatch, createDispatchHook } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { auth } from "../config/firebase";
 import { removeProduct, selectProduct } from "../redux/reducers/productSlice";
-import ClearIcon from "@mui/icons-material/Clear";
+import ClearIcon from "@mui/icons-material/Delete";
 import ShoppingCartCheckoutTwoToneIcon from "@mui/icons-material/ShoppingCartCheckoutTwoTone";
 import { NavLink } from "react-router-dom";
 
@@ -29,9 +29,7 @@ const Cart = () => {
   const EmptyCart = () => {
     return (
       <div>
-        <Grid container
-        direction="column"
-        justify="center" alignItems="center">
+        <Grid container direction="column" justify="center" alignItems="center">
           <Typography variant="h4">Cart is empty</Typography>
           <Typography variant="body1">
             Please Login or add product to cart

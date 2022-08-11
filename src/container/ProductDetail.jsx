@@ -82,7 +82,7 @@ const ProductDetail = () => {
                 maxWidth: "100%",
               }}
             >
-              <Skeleton variant="rectangular" width={500} height={350} />
+              <Skeleton variant="rect" width={500} height={350} />
             </CardMedia>
           </Box>
         </Grid>
@@ -95,7 +95,7 @@ const ProductDetail = () => {
               <Skeleton variant="text" width={500} />
             </Typography>
             <Typography variant="body" sx={{ textAlign: "justify" }}>
-              <Skeleton variant="rectangular" width={500} height={200} />
+              <Skeleton variant="rect" width={500} height={200} />
             </Typography>
           </Box>
         </Grid>
