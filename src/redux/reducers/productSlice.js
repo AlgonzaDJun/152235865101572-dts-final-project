@@ -30,10 +30,14 @@ const productSlice = createSlice({
         );
       }
     },
+    // return empty array when cart is empty
+    emptyCart: (state) => {
+      return [...state = []];
+    },
   },
 });
 
-export const { addProduct, removeProduct } = productSlice.actions;
+export const { addProduct, removeProduct, emptyCart } = productSlice.actions;
 
 export const selectProduct = (state) => state.product;
 
